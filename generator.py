@@ -98,10 +98,11 @@ for function_name in list_functions:
         notepadplus.add_snippet(citizenify(function_name), function_args)
 
 # Write the completed snippets & completions to respective files
-write_file("VS Code snippets", (output_folder, "Visual Studio Code", "lua.json"), vscode.gen_file(), False)
-write_file("Sublime Text completions", (output_folder, "Sublime Text", "fivem.sublime-completions"), sublime.gen_file(), False)
-write_file("Notepad++ completions", (output_folder, "Notepad++", "lua.xml"), notepadplus.gen_file(), True)
+write_file("VS Code snippets", (output_folder, "visual-studio-code", "lua.json"), vscode.gen_file(), False)
+write_file("VS Code snippets", (output_folder, "visual-studio-code", "settings.json"), vscode.gen_global_file(), False)
 #write_file("Atom snippets", (output_folder, "Atom", "snippets.cson"), atom.gen_file(), False)
+write_file("Sublime Text completions", (output_folder, "sublime-text", "fivem.sublime-completions"), sublime.gen_file(), False)
+write_file("Notepad++ completions", (output_folder, "notepad++", "lua.xml"), notepadplus.gen_file(), True)
 
 # Get the script's execution time and print it
 execution_time = time.time() - start_time
