@@ -87,21 +87,21 @@ for function_name in list_functions:
 
     if function_type == "Global" or function_type == "Default" or function_name in config.CITIZEN_GLOBALS:
         vscode.add_snippet(function_name, function_args)
-        atom.add_snippet(function_name, function_args)
+        #atom.add_snippet(function_name, function_args)
         sublime.add_completion(function_name, function_args)
         notepadplus.add_snippet(function_name, function_args)
 
     if function_type == "Citizen":
         vscode.add_snippet(citizenify(function_name), function_args)
-        atom.add_snippet(citizenify(function_name), function_args)
+        #atom.add_snippet(citizenify(function_name), function_args)
         sublime.add_completion(citizenify(function_name), function_args)
         notepadplus.add_snippet(citizenify(function_name), function_args)
 
 # Write the completed snippets & completions to respective files
 write_file("VS Code snippets", (output_folder, "Visual Studio Code", "lua.json"), vscode.gen_file(), False)
-write_file("Atom snippets", (output_folder, "Atom", "snippets.cson"), atom.gen_file(), False)
 write_file("Sublime Text completions", (output_folder, "Sublime Text", "fivem.sublime-completions"), sublime.gen_file(), False)
 write_file("Notepad++ completions", (output_folder, "Notepad++", "lua.xml"), notepadplus.gen_file(), True)
+#write_file("Atom snippets", (output_folder, "Atom", "snippets.cson"), atom.gen_file(), False)
 
 # Get the script's execution time and print it
 execution_time = time.time() - start_time
