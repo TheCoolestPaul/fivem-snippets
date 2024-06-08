@@ -2,7 +2,7 @@ import json
 from util import format_args
 
 snippets = {}
-luaGlobals = []
+luaGlobals = ["exports"]
 
 def add_snippet(name, arguments):
     arguments_formatted = format_args(arguments)
